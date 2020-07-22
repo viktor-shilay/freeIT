@@ -15,11 +15,9 @@ public class Task3 {
         int number = scan.nextInt();
         if (number > 0) {
             number += 1;
-        }
-        if (number < 0) {
+        }else if (number < 0) {
             number -= 2;
-        }
-        if (number == 0) {
+        }else {
             number = 10;
         }
         System.out.println("Received number: " + number);

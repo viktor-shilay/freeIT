@@ -14,34 +14,23 @@ public class Task1 {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a number:");
         int number = scan.nextInt();
-        if (number > 0) {
-            if (number / 10 > 0) {
-                if (number / 100 > 0) {
-                    if (number / 1000 > 0) {
-                        System.out.println("It's a positive multi-digit number!");
-                    } else {
-                        System.out.println("It's positive 3-digits number!");
-                    }
-                } else {
-                    System.out.println("It's positive 2-digits number!");
-                }
-            } else {
-                System.out.println("It's positive 1-digit number!");
-            }
+
+        if (number > 1000) {
+            System.out.println("It's a positive multi-digit number");
+        } else if (number > 100) {
+            System.out.println("It's a positive 3-digits number");
+        } else if (number > 10) {
+            System.out.println("It's a positive 2-digits number");
+        } else if (number > 0) {
+            System.out.println("It's a positive 1-digits number!");
+        } else if (number < -1000) {
+            System.out.println("It's negative multi-digit number!");
+        } else if (number < -100) {
+            System.out.println("It's negative 3-digits number!");
+        } else if (number < -10) {
+            System.out.println("It's negative 2-digits number!");
         } else if (number < 0) {
-            if (number / 10 < 0) {
-                if (number / 100 < 0) {
-                    if (number / 1000 < 0) {
-                        System.out.println("It's negative multi-digit number!");
-                    } else {
-                        System.out.println("It's negative 3-digits number!");
-                    }
-                } else {
-                    System.out.println("It's negative 2-digits number!");
-                }
-            } else {
-                System.out.println("It's negative 1-digit number!");
-            }
+            System.out.println("It's negative 1-digit number!");
         } else {
             System.out.println("You entered 0");
         }

@@ -14,17 +14,19 @@ public class ReverseNumber {
         System.out.println("Enter the 4-digits number:");
         int myInt = scan.nextInt();
         int remainder;
+        int reverse;
         System.out.println("Your reverse number:");
         remainder = myInt % 10;
-        System.out.print(remainder);
+        reverse = remainder*1000;
         myInt /= 10;
         remainder = myInt % 10;
-        System.out.print(remainder);
+        reverse = reverse + (remainder*100);
         myInt /= 10;
         remainder = myInt % 10;
-        System.out.print(remainder);
+        reverse = reverse + (remainder*10);
         myInt /= 10;
         remainder = myInt % 10;
-        System.out.print(remainder);
+        reverse = reverse+remainder;
+        System.out.println(reverse);
     }
 }
