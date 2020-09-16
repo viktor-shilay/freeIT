@@ -31,7 +31,7 @@ public class Task33 {
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         } catch (IOException e) {
-            System.out.println("Something went wrong!");;
+            System.out.println("Something went wrong!");
         }
     }
 }
