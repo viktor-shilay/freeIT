@@ -14,7 +14,7 @@ public class Task33 {
         StringBuilder stringBuilder = new StringBuilder();
         char[] punctMarks = {'.', ',', ';', ':', '!', '?', '-', '"', '(', ')'};
         int counterPunctMarks = 0;
-        try (FileInputStream fis = new FileInputStream("task33.txt")) {
+        try (FileInputStream fis = new FileInputStream("src\\homework12\\manual\\task33\\task33.txt")) {
             int i;
             while ((i = fis.read()) != -1) {
                 stringBuilder.append((char) i);

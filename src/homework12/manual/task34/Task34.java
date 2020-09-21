@@ -17,7 +17,7 @@ public class Task34 {
     public static void main(String[] args) {
         StringBuilder stringBuilder = new StringBuilder();
         HashSet<Integer> numbers = new HashSet<>();
-        try(FileInputStream fis = new FileInputStream("task34.txt")){
+        try(FileInputStream fis = new FileInputStream("src\\homework12\\manual\\task34\\task34.txt")){
             int i;
             while ((i=fis.read())!=-1){
                 stringBuilder.append((char)i);
