@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xmlns="task1.xsd" xs:schemaLocation="task1.xsd task1.xsd">
+    <device id="dev_01">
+    <motherboard>
+        <name>ASUS TUF B450M-Pro Gaming</name>
+        <price currency="USD">110</price>
+        <release_date >2018</release_date>
+        <type>mATX</type>
+        <memory type="DDR4">
+            <maximum_memory_size>8</maximum_memory_size>
+            <maximum_memory_slots>4</maximum_memory_slots>
+        </memory>
+        <number_usb_slots>6</number_usb_slots>
+        <origin>China</origin>
+        <critical>true</critical>
+    </motherboard>
+    </device>
+
+    <device id="dev_02">
+    <cpu>
+        <name codename="Coffee Lake">Intel Core i7-9700K</name>
+        <price currency="USD">448</price>
+        <release_date>2018</release_date>
+        <type>OEM</type>
+        <number_cores>8</number_cores>
+        <technical_process>14nm</technical_process>
+        <origin>China</origin>
+        <critical>true</critical>
+    </cpu>
+    </device>
+
+    <device id="dev_03">
+    <graphics_card>
+        <name>MSI GeForce RTX 2080 Ti Gaming X Trio</name>
+        <price currency="USD">110</price>
+        <release_date>2018</release_date>
+        <graphical_cpu>GeForce RTX 2080 Ti</graphical_cpu>
+        <videomemory type="GDDR6">
+            <videomemory_size>11</videomemory_size>
+        </videomemory>
+        <number_fans>3</number_fans>
+        <origin>China</origin>
+        <critical>true</critical>
+    </graphics_card>
+    </device>
+
+    <device id="dev_04">
+    <ssd>
+        <name>Crucial MX500</name>
+        <price currency="USD">138</price>
+        <release_date>2017</release_date>
+        <capacity unit="GB">1024</capacity>
+        <type>M2</type>
+        <flash_memory>3D TLC NAND</flash_memory>
+        <origin>China</origin>
+        <critical>false</critical>
+    </ssd>
+    </device>
+</devices>

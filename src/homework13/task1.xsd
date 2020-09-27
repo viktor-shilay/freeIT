@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="task1.xsd" xmlns:dev="task1.xsd" elementFormDefault="qualified">
+  <xs:element name="devices" type="dev:devicesType"/>
+
+  <xs:complexType name="devicesType">
+    <xs:sequence>
+      <xs:element name="device" type="dev:deviceType" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deviceType">
+    <xs:sequence>
+      <xs:element name="motherboard" type="dev:motherboardType" minOccurs="0"/>
+      <xs:element name="cpu" type="dev:cpuType" minOccurs="0"/>
+      <xs:element name="graphics_card" type="dev:graphics_cardType" minOccurs="0"/>
+      <xs:element name="ssd" type="dev:ssdType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:ID">
+          <xs:pattern value="[a-zA-Z]{3}[0-9_]{3}"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="motherboardType">
+    <xs:sequence>
+      <xs:element name="name" type="dev:nameType"/>
+      <xs:element name="price" type="dev:priceType"/>
+      <xs:element name="release_date" type="xs:string"/>
+      <xs:element name="type" type="xs:string"/>
+      <xs:element name="memory" type="dev:memoryType"/>
+      <xs:element name="number_usb_slots" type="xs:string"/>
+      <xs:element name="origin" type="xs:string"/>
+      <xs:element name="critical" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cpuType">
+    <xs:sequence>
+      <xs:element type="dev:nameType" name="name"/>
+      <xs:element type="dev:priceType" name="price"/>
+      <xs:element type="xs:string" name="release_date"/>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="xs:string" name="number_cores"/>
+      <xs:element type="xs:string" name="technical_process"/>
+      <xs:element type="xs:string" name="origin"/>
+      <xs:element type="xs:string" name="critical"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="graphics_cardType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="dev:priceType" name="price"/>
+      <xs:element type="xs:string" name="release_date"/>
+      <xs:element type="xs:string" name="graphical_cpu"/>
+      <xs:element type="dev:videomemoryType" name="videomemory"/>
+      <xs:element type="xs:string" name="number_fans"/>
+      <xs:element type="xs:string" name="origin"/>
+      <xs:element type="xs:string" name="critical"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ssdType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="dev:priceType" name="price"/>
+      <xs:element type="xs:string" name="release_date"/>
+      <xs:element type="dev:capacityType" name="capacity"/>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="xs:string" name="flash_memory"/>
+      <xs:element type="xs:string" name="origin"/>
+      <xs:element type="xs:string" name="critical"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="nameType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="codename" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="priceType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="currency" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="memoryType">
+    <xs:sequence>
+      <xs:element name="maximum_memory_size">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="4096"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="maximum_memory_slots">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DDR"/>
+          <xs:enumeration value="DDR2"/>
+          <xs:enumeration value="DDR3"/>
+          <xs:enumeration value="DDR4"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+
+  </xs:complexType>
+  <xs:complexType name="videomemoryType">
+    <xs:sequence>
+      <xs:element name="videomemory_size">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="48"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DDR2"/>
+          <xs:enumeration value="DDR3"/>
+          <xs:enumeration value="DDR4"/>
+          <xs:enumeration value="GDDR3"/>
+          <xs:enumeration value="GDDR5"/>
+          <xs:enumeration value="GDDR5X"/>
+          <xs:enumeration value="GDDR6"/>
+          <xs:enumeration value="GDDR6X"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="capacityType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="unit">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="MB"/>
+              <xs:enumeration value="GB"/>
+              <xs:enumeration value="TB"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+</xs:schema>
